@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvmascotas"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="4dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imvFoto"
+            android:layout_width="215dp"
+            android:layout_height="175dp"
+            android:layout_gravity="center"
+            android:src="@drawable/imgmascota1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/ivHueso"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:src="@drawable/hueso"
+                android:layout_marginRight="30dp"/>
+
+            <TextView
+                android:id="@+id/tvNombrep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Perro"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginRight="100dp"/>
+
+            <ImageView
+                android:id="@+id/ivHuesocolor"
+                android:layout_width="48dp"
+                android:layout_height="45dp"
+                android:src="@drawable/huesocolor"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"/>
+
+
+            <TextView
+                android:id="@+id/tvRanked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ranked"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

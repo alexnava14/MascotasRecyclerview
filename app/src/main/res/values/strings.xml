@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MascotasRecyclerview</string>
+    <string name="Appbar1">PETAGRAM</string>
+    <string name="Appbar2">Mascotas Favoritas</string>
+    <string name="MensajeSnack">Agregaste Mascota</string>
+    <string name="text_actionSnack">Pulsaste Boton</string>
+</resources>
