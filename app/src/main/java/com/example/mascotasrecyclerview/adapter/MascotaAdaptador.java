@@ -1,18 +1,17 @@
-package com.example.mascotasrecyclerview;
+package com.example.mascotasrecyclerview.adapter;
 
-import android.icu.text.Transliterator;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mascotasrecyclerview.pojo.Mascota;
+import com.example.mascotasrecyclerview.R;
 
 import java.util.ArrayList;
 

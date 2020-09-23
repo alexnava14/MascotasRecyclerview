@@ -4,4 +4,11 @@
     <string name="Appbar2">Mascotas Favoritas</string>
     <string name="MensajeSnack">Agregaste Mascota</string>
     <string name="text_actionSnack">Pulsaste Boton</string>
+    <string name="Nombrecorreo">Nombre</string>
+    <string name="Emailcorreo">Email</string>
+    <string name="Contenidocorreo">Contenido</string>
+    <string name="tituloCorreo">Mandar Email</string>
+    <string name="textobuttoncorreo">Enviar Comentarios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

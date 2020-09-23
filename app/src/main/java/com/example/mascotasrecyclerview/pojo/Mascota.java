@@ -1,4 +1,4 @@
-package com.example.mascotasrecyclerview;
+package com.example.mascotasrecyclerview.pojo;
 
 
 import android.os.Parcel;
