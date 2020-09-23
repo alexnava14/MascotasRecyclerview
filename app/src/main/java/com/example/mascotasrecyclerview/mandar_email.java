@@ -44,8 +44,8 @@ public class mandar_email extends AppCompatActivity implements View.OnClickListe
 
         Enviarcoments.setOnClickListener(this);
 
-        myemail="alexnava1409@gmail.com";
-        mypass="alejandro140996upiita";
+        myemail="cursos1409apps@gmail.com";
+        mypass="AndroidDevelopmentcoursea19";
     }
 
     @Override

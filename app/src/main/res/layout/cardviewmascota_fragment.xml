@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imvFotoMascotafragment"
-            android:layout_width="215dp"
-            android:layout_height="175dp"
+            android:layout_width="104dp"
+            android:layout_height="53dp"
             android:layout_gravity="center"
             android:src="@drawable/perro2" />
 
@@ -32,11 +32,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:text="Ranked"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginRight="80dp"
-                android:layout_marginLeft="100dp"/>
+                android:textStyle="bold" />
 
 
             <ImageView
