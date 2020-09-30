@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,24 +11,21 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mascotasrecyclerview.MainActivity;
 import com.example.mascotasrecyclerview.MascotasFavoritas;
 import com.example.mascotasrecyclerview.R;
 import com.example.mascotasrecyclerview.adapter.MascotaAdaptador;
-import com.example.mascotasrecyclerview.mandar_email;
+import com.example.mascotasrecyclerview.db.ConstructorMascotasFavoritas;
 import com.example.mascotasrecyclerview.pojo.Mascota;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
-public class RecyclerViewMascotasFragment extends Fragment  implements View.OnClickListener {
+public class RecyclerViewMascotasFragment extends Fragment  implements View.OnClickListener{
 
 
     ArrayList<Mascota> MaFav=new ArrayList<Mascota>();
@@ -48,14 +43,12 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
-       v=inflater.inflate(R.layout.fragment_recyclerviewmascotas,container,false);
+        v=inflater.inflate(R.layout.fragment_recyclerviewmascotas,container,false);
 
         huella=(ImageView) v.findViewById(R.id.ivhuella);
         estrella=(ImageView) v.findViewById(R.id.ivestrella);
         liked=(TextView) v.findViewById(R.id.tvmascotasliked);
         liked.setText(String.valueOf(mascoliked));
-
-
 
 
 
@@ -79,7 +72,7 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
 
 
     public void InicializarAdaptador(){
-
+        System.out.println("pruebafinal"+Mascotas.get(0).getNombre());
 
 
         final MascotaAdaptador Adapter= new MascotaAdaptador(Mascotas, new MascotaAdaptador.OnItemClickListener() {
@@ -93,7 +86,10 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
                         Nombre=Mascotas.get(position).getNombre();
                         foto=Mascotas.get(position).getFoto();
                         rank=Mascotas.get(position).getRank();
+                        System.out.println("Probando"+Nombre);
                         agregarfav(Nombre,foto,rank,position);
+
+
                         liked.setText(String.valueOf(mascoliked+=1));
                     }
                     else{
@@ -102,6 +98,7 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
                         foto=Mascotas.get(position).getFoto();
                         rank=Mascotas.get(position).getRank();
                         agregarfav(Nombre,foto,rank,position);
+
                     }
                     //System.out.println(Mascotas.get(position).getNombre());
                     //System.out.println(Mascotas.get(position).getRank());
@@ -116,18 +113,22 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
     public void InicializarListaMascotas(){
         Mascotas =new ArrayList<Mascota>();
 
-        Mascotas.add(new Mascota("Firulais",R.drawable.imgmascota1,0));
-        Mascotas.add(new Mascota("Sombra",R.drawable.perro2,0));
-        Mascotas.add(new Mascota("Firulais",R.drawable.perro3,0));
-        Mascotas.add(new Mascota("Scobby",R.drawable.perro4,0));
-        Mascotas.add(new Mascota("Dolly",R.drawable.perro5,0));
-        Mascotas.add(new Mascota("Dino",R.drawable.perro6,0));
+        Mascotas.add(new Mascota(0,"Firulais",R.drawable.imgmascota1,0));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,0));
+        Mascotas.add(new Mascota(2,"Firulais",R.drawable.perro3,0));
+        Mascotas.add(new Mascota(3,"Scobby",R.drawable.perro4,0));
+        Mascotas.add(new Mascota(4,"Dolly",R.drawable.perro5,0));
+        Mascotas.add(new Mascota(5,"Dino",R.drawable.perro6,0));
     }
 
     public void agregarfav(String nombre,int foto,int rank,int position){
 
+        final ConstructorMascotasFavoritas MascFav=new ConstructorMascotasFavoritas(getContext());
+
         if(!MaFav.contains(Mascotas.get(position)))
             MaFav.add(Mascotas.get(position));
+
+        MascFav.InsertarcincoMascotaFavorita(MaFav);
 
     }
 
@@ -154,9 +155,9 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
     public void onClick(View view) {
         if (view==estrella){
             Intent intent=new Intent(getActivity(), MascotasFavoritas.class);
-            Bundle bun=new Bundle();
-            bun.putSerializable("MaFav",MaFav);
-            intent.putExtras(bun);
+            //Bundle bun=new Bundle();
+            //bun.putSerializable("MaFav",MaFav);
+            //intent.putExtras(bun);
             startActivity(intent);
 
         }
@@ -164,7 +165,9 @@ public class RecyclerViewMascotasFragment extends Fragment  implements View.OnCl
 
     }
 
-
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        InicializarAdaptador();
+    }
 }

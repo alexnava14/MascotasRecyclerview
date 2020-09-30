@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -54,11 +53,11 @@ public class MascotaFragment extends Fragment {
     public void InicializarListaMascotas(){
         Mascotas =new ArrayList<Mascota>();
 
-        Mascotas.add(new Mascota("Firulais",R.drawable.perro2,0));
-        Mascotas.add(new Mascota("Sombra",R.drawable.perro2,3));
-        Mascotas.add(new Mascota("Firulais",R.drawable.perro2,4));
-        Mascotas.add(new Mascota("Scobby",R.drawable.perro2,6));
-        Mascotas.add(new Mascota("Dolly",R.drawable.perro2,7));
-        Mascotas.add(new Mascota("Dino",R.drawable.perro2,8));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,0));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,3));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,4));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,6));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,7));
+        Mascotas.add(new Mascota(1,"Sombra",R.drawable.perro2,8));
     }
 }

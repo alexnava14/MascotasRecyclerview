@@ -4,26 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.mascotasrecyclerview.adapter.MascotaAdaptador;
 import com.example.mascotasrecyclerview.adapter.PageAdapter;
 import com.example.mascotasrecyclerview.fragments.MascotaFragment;
 import com.example.mascotasrecyclerview.fragments.RecyclerViewMascotasFragment;
-import com.example.mascotasrecyclerview.pojo.Mascota;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

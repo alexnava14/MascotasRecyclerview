@@ -44,24 +44,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         holder.NombrePerro.setText(String.valueOf(mascota.getNombre()));
         holder.Rank.setText(String.valueOf(mascota.getRank()));
 
-
-
-      //  holder.hueso.setOnClickListener(this);
-
-     /*  holder.hueso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                int valorRank=mascota.getRank()+1;
-                System.out.println(valorRank);
-                //mascota.setRank(valorRank);
-
-                holder.Rank.setText(String.valueOf(mascota.getRank()));
-
-
-            }
-        });*/
     }
 
     @Override

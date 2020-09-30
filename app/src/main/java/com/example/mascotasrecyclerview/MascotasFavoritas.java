@@ -10,14 +10,17 @@ import android.widget.ImageView;
 
 import com.example.mascotasrecyclerview.adapter.MascotaAdaptador;
 import com.example.mascotasrecyclerview.pojo.Mascota;
+import com.example.mascotasrecyclerview.presentador.IMascotasFavoritasPresenter;
+import com.example.mascotasrecyclerview.presentador.MascotasFavoritasPresenter;
 
 import java.util.ArrayList;
 
-public class MascotasFavoritas extends AppCompatActivity implements View.OnClickListener {
+public class MascotasFavoritas extends AppCompatActivity  implements View.OnClickListener,IMascotasFavoritas {
 
 
-    ArrayList<Mascota> MascotasFav;
+   // ArrayList<Mascota> MascotasFav;
     private RecyclerView ListaMascotas;
+    private IMascotasFavoritasPresenter presenter;
     ImageView arrow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +31,20 @@ public class MascotasFavoritas extends AppCompatActivity implements View.OnClick
         arrow=(ImageView) findViewById(R.id.ivarrowback);
 
         arrow.setOnClickListener(this);
+        ListaMascotas=(RecyclerView) findViewById(R.id.rvMascotas2);
+        presenter=new MascotasFavoritasPresenter(this,this);
 
         //Recepcion de ArrayList
-        Bundle bundle=getIntent().getExtras();
-        MascotasFav=(ArrayList<Mascota>) bundle.getSerializable("MaFav");
+        //Bundle bundle=getIntent().getExtras();
+        //MascotasFav=(ArrayList<Mascota>) bundle.getSerializable("MaFav");
 
 
 
-        //RecyclerView
-        ListaMascotas=(RecyclerView) findViewById(R.id.rvMascotas2);
-        LinearLayoutManager llm= new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        ListaMascotas.setLayoutManager(llm);
-        InicializarAdaptador();
+
+       // InicializarAdaptador();
     }
 
-    public void InicializarAdaptador(){
+   /* public void InicializarAdaptador(){
 
         final MascotaAdaptador Adapter= new MascotaAdaptador(MascotasFav, new MascotaAdaptador.OnItemClickListener() {
             @Override
@@ -56,9 +57,36 @@ public class MascotasFavoritas extends AppCompatActivity implements View.OnClick
         ListaMascotas.setAdapter(Adapter);
 
     }
-
+*/
     @Override
     public void onClick(View view) {
         finish();
+    }
+
+    @Override
+    public void generarLinearLayoutVertical() {
+        //RecyclerView
+
+        LinearLayoutManager llm= new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        ListaMascotas.setLayoutManager(llm);
+        ListaMascotas.setHasFixedSize(true);
+    }
+
+    @Override
+    public MascotaAdaptador crearAdaptador(ArrayList<Mascota> Mascotas) {
+
+        final MascotaAdaptador Adapter= new MascotaAdaptador(Mascotas, new MascotaAdaptador.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View view, int position) {
+
+            }
+        });
+        return Adapter;
+    }
+
+    @Override
+    public void inicializarAdaptador(MascotaAdaptador Adaptador) {
+        ListaMascotas.setAdapter(Adaptador);
     }
 }

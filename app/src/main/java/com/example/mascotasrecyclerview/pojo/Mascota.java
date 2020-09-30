@@ -1,20 +1,31 @@
 package com.example.mascotasrecyclerview.pojo;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class Mascota implements Serializable {
+    int Id;
     private String Nombre;
     private int Foto;
     private int Rank;
 
-    public Mascota(String nombre, int foto, int rank) {
+    public Mascota(int id,String nombre, int foto, int rank) {
+        this.Id=id;
         this.Nombre = nombre;
         this.Foto = foto;
         this.Rank = rank;
+    }
+
+    public Mascota() {
+
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     public String getNombre() {
